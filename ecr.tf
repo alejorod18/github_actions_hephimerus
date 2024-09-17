@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "my_repo" {
-  name = "my-docker-repo"
+  name = var.GITHUB_REPOSITORY
 }
 
 resource "aws_iam_role" "ec2_role" {
