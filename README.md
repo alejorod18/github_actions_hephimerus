@@ -38,12 +38,13 @@ El proyecto automatiza el flujo de trabajo CI/CD para construir y desplegar apli
 
 2. **Configurar GitHub Secrets**:
    Configura los siguientes secretos en GitHub para permitir el despliegue:
-   - `AWS_ACCESS_KEY_ID`
-   - `AWS_SECRET_ACCESS_KEY`
-   - `TF_VAR_GITHUB_REPOSITORY`
-   - `TF_VAR_GITHUB_TOKEN`
-   - `TF_VAR_GITHUB_USER`
-   - `TF_VAR_GITHUB_WORKSPACE`
+   - **AWS_ACCESS_KEY_ID**: La clave de acceso de AWS necesaria para autenticar las solicitudes a la API de AWS.
+   - **AWS_SECRET_ACCESS_KEY**: La clave secreta de AWS correspondiente a `AWS_ACCESS_KEY_ID`.
+   - **TF_VAR_GITHUB_REPOSITORY**: El nombre del repositorio de GitHub donde se almacenará y gestionará el código.
+   - **TF_VAR_GITHUB_TOKEN**: El token de acceso de GitHub para autenticar las acciones que interactúan con el repositorio.
+   - **TF_VAR_GITHUB_USER**: El nombre de usuario de GitHub asociado con el repositorio y token.
+   - **TF_VAR_GITHUB_WORKSPACE**: El directorio de trabajo en el que se clonará el repositorio durante la ejecución de las acciones.
+
 
 3. **Ejecutar los workflows de GitHub Actions**:
    - Los workflows se ejecutan automáticamente en función de los eventos configurados (push, pull request, etc.).
@@ -60,12 +61,7 @@ El proyecto automatiza el flujo de trabajo CI/CD para construir y desplegar apli
 - Terraform instalado en tu máquina local.
 - GitHub Secrets configurados para autenticarte en AWS.
 
-## Configuración
-
-1. **Variables**: Edita `variables.tf` para configurar los detalles específicos del entorno, como el tipo de instancia, la región, etc.
-2. **Terraform**: Ejecuta los comandos de Terraform para desplegar la infraestructura.
-
-## Personalización
+## IMPORTANTE
 
 - **Modificar el comportamiento del despliegue**: Para personalizar el comportamiento de la instancia EC2 (como los comandos ejecutados durante el build), edita el bloque `inline` en el archivo `ec2.tf`.
   
